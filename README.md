@@ -1,5 +1,7 @@
 # async-exception-stacktrace
 
+*([AsyncStackTraceEx](https://www.nuget.org/packages/AsyncStackTraceEx/1.0.0) is available on NuGet)*
+
 **Scenario**: I've written my app and released it to users. Some of them have reported crashes but I don't know where. So I released an update which captures unhandled exceptions and invites the users to email these to me, in the hope that I can figure out what's wrong.
 
 ![](http://blogs.msdn.com/resized-image.ashx/__size/240x400/__key/communityserver-blogs-components-weblogfiles/00-00-01-12-06/8032.report1.png) ![](http://blogs.msdn.com/resized-image.ashx/__size/240x400/__key/communityserver-blogs-components-weblogfiles/00-00-01-12-06/0045.report2.png)
