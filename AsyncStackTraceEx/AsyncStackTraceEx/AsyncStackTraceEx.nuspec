@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AsyncStackTraceEx</id>
+    <version>1.0.0.0</version>
+    <title>Async StackTraceEx</title>
+    <authors>Lucian Wischik</authors>
+    <owners>Lucian Wischik</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/ljw1004/async-exception-stacktrace/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ljw1004/async-exception-stacktrace</projectUrl>
+    <iconUrl>http://blogs.msdn.com/cfs-filesystemfile.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-01-12-06/2234.async_2D00_icon.png</iconUrl>
+    <description>Gives Exception.StackTraceEx() which works better with async code, even without PDBs</description>
+    <summary>Exception.StrackTraceEx</summary>
+    <tags>async exception stacktrace</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
