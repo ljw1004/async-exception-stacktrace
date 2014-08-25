@@ -67,19 +67,6 @@
     <Import Include="System.Runtime.CompilerServices" />
     <Import Include="System.Threading.Tasks" />
     <Import Include="System.Xml.Linq" />
-    <Import Include="Windows.ApplicationModel" />
-    <Import Include="Windows.ApplicationModel.Activation" />
-    <Import Include="Windows.Foundation" />
-    <Import Include="Windows.Foundation.Collections" />
-    <Import Include="Windows.Graphics.Display" />
-    <Import Include="Windows.UI.ViewManagement" />
-    <Import Include="Windows.UI.Xaml" />
-    <Import Include="Windows.UI.Xaml.Controls" />
-    <Import Include="Windows.UI.Xaml.Controls.Primitives" />
-    <Import Include="Windows.UI.Xaml.Data" />
-    <Import Include="Windows.UI.Xaml.Input" />
-    <Import Include="Windows.UI.Xaml.Media" />
-    <Import Include="Windows.UI.Xaml.Media.Imaging" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncStackTraceEx.vb" />
