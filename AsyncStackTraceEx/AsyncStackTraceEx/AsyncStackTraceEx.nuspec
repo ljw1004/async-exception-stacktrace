@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>AsyncStackTraceEx</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0.1</version>
     <title>Async StackTraceEx</title>
     <authors>Lucian Wischik</authors>
     <owners>Lucian Wischik</owners>
@@ -10,8 +10,21 @@
     <licenseUrl>https://github.com/ljw1004/async-exception-stacktrace/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/ljw1004/async-exception-stacktrace</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/ljw1004/async-exception-stacktrace/master/AsyncStackTraceEx/AsyncStackTraceEx/AsyncStackTraceEx.png</iconUrl>
-    <description>Gives Exception.StackTraceEx() which works better with async code, even without PDBs</description>
-    <summary>Exception.StrackTraceEx</summary>
+    <description>Normally when you look at Exception.StackTrace, it looks pretty bad for async method calls, and doesn't even include line numbers when it's run on a device like Phone which lacks PDBs.
+    
+This package provides an alternative, Exception.StackTraceEx(), which has cleaned up async output, and which gives line and file numbers even on phone.
+
+This way, if your app crashes, you can synthesize much better crash reports for the user to email back to you.
+
+Await DownloadAsync(url).Log()
+
+To get that richer information in exception stack-traces, you have to augment your "await expr" calls with "await expr.Log()", as shown above.
+
+Await DownloadAsync(url).Log("DownloadAsync",url)
+
+If you chose to include more information, then the exception stack traces you get will be even richer and more actionable.
+</description>
+    <summary>Gives Exception.StackTraceEx() which works better with async code, even without PDBs</summary>
     <tags>async exception stacktrace</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
