@@ -51,12 +51,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework and Windows SDK is automatically included -->
-    <None Include="AsyncStackTraceEx.nuspec">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -78,10 +72,6 @@
     <None Include="AsyncStackTraceEx.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.VisualBasic.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)packages\NuGet.CommandLine.2.8.2\tools\NuGet.exe" pack ..\..\AsyncStackTraceEx.vbproj</PostBuildEvent>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
