@@ -48,6 +48,9 @@ Namespace Global
                 If s = "System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()" Then Continue For
                 If s = "System.Runtime.CompilerServices.TaskAwaiter.GetResult()" Then Continue For
 
+                ' Get rid of stack-frames that are part of .NET Native machiner
+                If s.Contains("!<BaseAddress>+0x") Then Continue For
+
                 ' Get rid of stack frames from VB and C# compiler-generated async state machine
                 Static Dim re1 As New Text.RegularExpressions.Regex("VB\$StateMachine_[\d]+_(.+)\.MoveNext\(\)")
                 Static Dim re2 As New Text.RegularExpressions.Regex("<([^>]+)>[^.]+\.MoveNext\(\)")
@@ -64,6 +67,7 @@ Namespace Global
                 ' Get rid of stack frames from AsyncStackTrace
                 If s.EndsWith("AsyncStackTraceExtensions.Log`1") Then Continue For
                 If s.EndsWith("AsyncStackTraceExtensions.Log") Then Continue For
+                If s.Contains("AsyncStackTraceExtensions.Log<") Then Continue For
 
                 ' Extract the method name, "Alpha.Beta.GammaAsync"
                 Static Dim re4 As New Text.RegularExpressions.Regex("^.*\.([^.]+)$")
@@ -85,7 +89,7 @@ Namespace Global
                     sb.AppendFormat("   at {1}{0}", vbCrLf, fullyQualified)
                 End If
             Next
-            If logs.Count > 0 Then sb.AppendLine("---------------- extra logged stackframes:")
+            If logs.Count > 0 AndAlso sb.Length > 0 Then sb.AppendLine("---------------- extra logged stackframes:")
             For Each log As ExceptionLog In logs
                 sb.AppendFormat("   at {1}{2} in {3}:line {4}{0}", vbCrLf, log.Member, log.LabelAndArg, IO.Path.GetFileName(log.Path), log.Line)
             Next

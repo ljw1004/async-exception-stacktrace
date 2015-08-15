@@ -79,13 +79,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\AsyncStackTraceEx\AsyncStackTraceEx.vbproj">
-      <Project>{2a9f9892-523f-4a5a-bcb1-7cd1919c3d1a}</Project>
-      <Name>AsyncStackTraceEx</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -116,6 +109,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AsyncStackTraceExWinrt\AsyncStackTraceExWinrt.vbproj">
+      <Project>{548d758d-db95-44c4-b309-cdcaa3df924e}</Project>
+      <Name>AsyncStackTraceExWinrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AsyncStackTraceEx\AsyncStackTraceEx.vbproj">
+      <Project>{2a9f9892-523f-4a5a-bcb1-7cd1919c3d1a}</Project>
+      <Name>AsyncStackTraceEx</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

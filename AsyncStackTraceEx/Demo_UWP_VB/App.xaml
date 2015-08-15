@@ -1,7 +1,8 @@
 ﻿<Application
-    x:Class="Demo_Phone81_VB.App"
+    x:Class="Demo_UWP_VB.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Demo_Phone81_VB">
+    xmlns:local="using:Demo_UWP_VB"
+    RequestedTheme="Light">
 
 </Application>

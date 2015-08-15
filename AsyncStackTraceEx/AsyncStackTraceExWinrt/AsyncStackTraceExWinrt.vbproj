@@ -173,6 +173,7 @@
     <None Include="AsyncStackTraceEx.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
@@ -191,11 +192,16 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.VisualBasic.targets" />
   <Target Name="AfterBuild">
-    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\AsyncStackTraceEx.dll"/>
-    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\portable-netcore451+wpa81\AsyncStackTraceEx.dll"/>
-    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceExWinRT.dll" DestinationFiles="bin\$(Configuration)\pack\lib\portable-netcore451+wpa81\AsyncStackTraceExWinRT.dll"/>
-    <Copy SkipUnchangedFiles="true" SourceFiles="AsyncStackTraceEx.nuspec" DestinationFiles="bin\$(Configuration)\pack\AsyncStackTraceEx.nuspec"/>
-    <Exec Command="..\..\..\..\packages\NuGet.CommandLine.2.8.2\tools\NuGet.exe pack AsyncStackTraceEx.nuspec" WorkingDirectory="bin\$(Configuration)\pack" Outputs="bin\$(Configuration)\pack\*.nupkg"/>
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\portable-net45+win8+wpa81+wp8\AsyncStackTraceEx.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\dotnet\AsyncStackTraceEx.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\portable-netcore451+wpa81\AsyncStackTraceEx.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\win\AsyncStackTraceEx.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceEx.dll" DestinationFiles="bin\$(Configuration)\pack\lib\wpa\AsyncStackTraceEx.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceExWinRT.dll" DestinationFiles="bin\$(Configuration)\pack\lib\portable-netcore451+wpa81\AsyncStackTraceExWinRT.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceExWinRT.dll" DestinationFiles="bin\$(Configuration)\pack\lib\win\AsyncStackTraceExWinRT.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\AsyncStackTraceExWinRT.dll" DestinationFiles="bin\$(Configuration)\pack\lib\wpa\AsyncStackTraceExWinRT.dll" />
+    <Copy SkipUnchangedFiles="true" SourceFiles="AsyncStackTraceEx.nuspec" DestinationFiles="bin\$(Configuration)\pack\AsyncStackTraceEx.nuspec" />
+    <Exec Command="..\..\..\..\packages\NuGet.CommandLine.2.8.6\tools\NuGet.exe pack AsyncStackTraceEx.nuspec -OutputDirectory .." WorkingDirectory="bin\$(Configuration)\pack" Outputs="bin\$(Configuration)\*.nupkg" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

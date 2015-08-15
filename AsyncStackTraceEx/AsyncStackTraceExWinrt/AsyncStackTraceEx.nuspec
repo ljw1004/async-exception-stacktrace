@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>AsyncStackTraceEx</id>
-    <version>1.0.0.2</version>
+    <version>1.0.1.1</version>
     <title>Async StackTraceEx</title>
     <authors>Lucian Wischik</authors>
     <owners>Lucian Wischik</owners>

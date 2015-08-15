@@ -26,18 +26,19 @@ namespace Demo_Phone81_CSharp
 
         private async void button1_Click(object sender, RoutedEventArgs e)
         {
-            Exception ex = null;
             try
             {
+                IAsyncAction a = null;
+                if (a != null) await a.Log();
                 await TestAsync().Log();
             }
-            catch (Exception ex1)
+            catch (Exception ex)
             {
-                ex = ex1; // workaround because up to VS2013 you can't await inside catch blocks
-            }
-            if (ex != null && await PromptToSendEmailAsync())
-            {
-                await SendEmailAsync(ex.Message, ex.StackTraceEx());
+                label1.Text = ex.StackTraceEx();
+                if (await PromptToSendEmailAsync())
+                {
+                    await SendEmailAsync(ex.Message, ex.StackTraceEx());
+                }
             }
         }
 

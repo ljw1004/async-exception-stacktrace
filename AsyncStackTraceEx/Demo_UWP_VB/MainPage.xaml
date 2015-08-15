@@ -1,16 +1,14 @@
 ﻿<Page
-    x:Class="Demo_Phone81_CSharp.MainPage"
+    x:Class="Demo_UWP_VB.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Demo_Phone81_CSharp"
+    xmlns:local="using:Demo_UWP_VB"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    mc:Ignorable="d">
 
     <Grid>
-        <Button x:Name="button1" Content="Crash!" Click="button1_Click" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Crash!" VerticalAlignment="Top"/>
         <ScrollViewer VerticalAlignment="Stretch" Margin="0,45,0,0" HorizontalAlignment="Stretch">
             <TextBox x:Name="label1" Background="Yellow" AcceptsReturn="True"/>
         </ScrollViewer>

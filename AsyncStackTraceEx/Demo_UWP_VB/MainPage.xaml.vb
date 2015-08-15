@@ -1,14 +1,22 @@
-﻿Public NotInheritable Class MainPage
+﻿' The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+
+''' <summary>
+''' An empty page that can be used on its own or navigated to within a Frame.
+''' </summary>
+Public NotInheritable Class MainPage
     Inherits Page
 
     Private Async Sub button1_Click(sender As Object, e As RoutedEventArgs) Handles button1.Click
         Dim ex As Exception = Nothing
         Try
+            Dim a As IAsyncAction = Nothing
+            If a IsNot Nothing Then Await a.Log()
             Await TestAsync().Log()
         Catch ex1 As Exception
             ex = ex1 ' workaround because up to VS2013 you can't await inside catch blocks
+            label1.Text = ex1.StackTraceEx
         End Try
-        If ex IsNot Nothing AndAlso Await PromptToSendEmailAsync() Then
+        If False AndAlso ex IsNot Nothing AndAlso Await PromptToSendEmailAsync() Then
             Await SendEmailAsync(ex.Message, ex.StackTraceEx)
         End If
 
@@ -23,7 +31,7 @@
         Return r.HasValue AndAlso r.Value
     End Function
 
-    Async Function SendEmailAsync(message As String, details As String) As task
+    Async Function SendEmailAsync(message As String, details As String) As Task
         Dim emailTo = "lu@wischik.com"
         Dim emailSubject = "DemoApp problem report"
         Dim emailBody = "I encountered a problem with AsyncStackTraceEx..." & vbCrLf & vbCrLf & message & vbCrLf & vbCrLf & "Details:" & vbCrLf & details
