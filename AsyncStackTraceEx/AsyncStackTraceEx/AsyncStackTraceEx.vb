@@ -48,6 +48,9 @@ Namespace Global
                 If s = "System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()" Then Continue For
                 If s = "System.Runtime.CompilerServices.TaskAwaiter.GetResult()" Then Continue For
 
+                ' Get rid of stack-frames that are part of the runtime exception handling machinery
+                If s = "System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()" Then Continue For
+
                 ' Get rid of stack-frames that are part of .NET Native machiner
                 If s.Contains("!<BaseAddress>+0x") Then Continue For
 
